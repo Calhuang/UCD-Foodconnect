@@ -7,14 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E129A102098008300BD2406 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E129A0F2098008200BD2406 /* GoogleService-Info.plist */; };
+		3E16D7FB209D534F00C2AC33 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E16D7FA209D534F00C2AC33 /* InputViewController.swift */; };
+		3E66DA8C209FD18D00F4AD17 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E66DA8B209FD18D00F4AD17 /* FeedCollectionViewCell.swift */; };
+		3E66DA90209FD26400F4AD17 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E66DA8F209FD26400F4AD17 /* FeedViewController.swift */; };
+		3EC3184E20A0D0F400DE06C7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3184D20A0D0F400DE06C7 /* LoginViewController.swift */; };
 		3ED90D41209793EC0079B020 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED90D40209793EC0079B020 /* AppDelegate.swift */; };
 		3ED90D43209793EC0079B020 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED90D42209793EC0079B020 /* ViewController.swift */; };
 		3ED90D46209793EC0079B020 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ED90D44209793EC0079B020 /* Main.storyboard */; };
 		3ED90D48209793EE0079B020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ED90D47209793EE0079B020 /* Assets.xcassets */; };
 		3ED90D4B209793EE0079B020 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ED90D49209793EE0079B020 /* LaunchScreen.storyboard */; };
+		B8D488A7C4FE97447F099D55 /* Pods_UCD_Foodconnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738442F3C252916D1CFD6051 /* Pods_UCD_Foodconnect.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E129A0F2098008200BD2406 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3E16D7FA209D534F00C2AC33 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		3E66DA8B209FD18D00F4AD17 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
+		3E66DA8F209FD26400F4AD17 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		3EC3184D20A0D0F400DE06C7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3ED90D3D209793EC0079B020 /* UCD Foodconnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UCD Foodconnect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED90D40209793EC0079B020 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ED90D42209793EC0079B020 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +33,9 @@
 		3ED90D47209793EE0079B020 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3ED90D4A209793EE0079B020 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3ED90D4C209793EE0079B020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		738442F3C252916D1CFD6051 /* Pods_UCD_Foodconnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UCD_Foodconnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F10E1B3BD6DE3D33F3C34CC3 /* Pods-UCD Foodconnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UCD Foodconnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-UCD Foodconnect/Pods-UCD Foodconnect.release.xcconfig"; sourceTree = "<group>"; };
+		F1C5AE529B19D117D6D4723D /* Pods-UCD Foodconnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UCD Foodconnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UCD Foodconnect/Pods-UCD Foodconnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8D488A7C4FE97447F099D55 /* Pods_UCD_Foodconnect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E03386891A4DF90ABDC66CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F1C5AE529B19D117D6D4723D /* Pods-UCD Foodconnect.debug.xcconfig */,
+				F10E1B3BD6DE3D33F3C34CC3 /* Pods-UCD Foodconnect.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		32A58E02A350D695C6785F6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				738442F3C252916D1CFD6051 /* Pods_UCD_Foodconnect.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3ED90D34209793EC0079B020 = {
 			isa = PBXGroup;
 			children = (
 				3ED90D3F209793EC0079B020 /* UCD Foodconnect */,
 				3ED90D3E209793EC0079B020 /* Products */,
+				0E03386891A4DF90ABDC66CF /* Pods */,
+				32A58E02A350D695C6785F6F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,8 +91,13 @@
 				3ED90D40209793EC0079B020 /* AppDelegate.swift */,
 				3ED90D42209793EC0079B020 /* ViewController.swift */,
 				3ED90D44209793EC0079B020 /* Main.storyboard */,
+				3EC3184D20A0D0F400DE06C7 /* LoginViewController.swift */,
+				3E66DA8B209FD18D00F4AD17 /* FeedCollectionViewCell.swift */,
+				3E16D7FA209D534F00C2AC33 /* InputViewController.swift */,
+				3E66DA8F209FD26400F4AD17 /* FeedViewController.swift */,
 				3ED90D47209793EE0079B020 /* Assets.xcassets */,
 				3ED90D49209793EE0079B020 /* LaunchScreen.storyboard */,
+				3E129A0F2098008200BD2406 /* GoogleService-Info.plist */,
 				3ED90D4C209793EE0079B020 /* Info.plist */,
 			);
 			path = "UCD Foodconnect";
@@ -71,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3ED90D4F209793EE0079B020 /* Build configuration list for PBXNativeTarget "UCD Foodconnect" */;
 			buildPhases = (
+				A864B6E02712672E80776D81 /* [CP] Check Pods Manifest.lock */,
 				3ED90D39209793EC0079B020 /* Sources */,
 				3ED90D3A209793EC0079B020 /* Frameworks */,
 				3ED90D3B209793EC0079B020 /* Resources */,
+				176045F8D8E9915832B48214 /* [CP] Embed Pods Frameworks */,
+				E9E9C9ABD0BC7043A6CFDE53 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ED90D4B209793EE0079B020 /* LaunchScreen.storyboard in Resources */,
+				3E129A102098008300BD2406 /* GoogleService-Info.plist in Resources */,
 				3ED90D48209793EE0079B020 /* Assets.xcassets in Resources */,
 				3ED90D46209793EC0079B020 /* Main.storyboard in Resources */,
 			);
@@ -130,13 +173,120 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		176045F8D8E9915832B48214 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UCD Foodconnect/Pods-UCD Foodconnect-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UCD Foodconnect/Pods-UCD Foodconnect-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A864B6E02712672E80776D81 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UCD Foodconnect-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9E9C9ABD0BC7043A6CFDE53 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UCD Foodconnect/Pods-UCD Foodconnect-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseTwitterAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseTwitterAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterShareExtensionUIResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UCD Foodconnect/Pods-UCD Foodconnect-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3ED90D39209793EC0079B020 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EC3184E20A0D0F400DE06C7 /* LoginViewController.swift in Sources */,
 				3ED90D43209793EC0079B020 /* ViewController.swift in Sources */,
+				3E66DA8C209FD18D00F4AD17 /* FeedCollectionViewCell.swift in Sources */,
 				3ED90D41209793EC0079B020 /* AppDelegate.swift in Sources */,
+				3E66DA90209FD26400F4AD17 /* FeedViewController.swift in Sources */,
+				3E16D7FB209D534F00C2AC33 /* InputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,11 +428,13 @@
 		};
 		3ED90D50209793EE0079B020 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1C5AE529B19D117D6D4723D /* Pods-UCD Foodconnect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FBXJCGAF5U;
 				INFOPLIST_FILE = "UCD Foodconnect/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,11 +448,13 @@
 		};
 		3ED90D51209793EE0079B020 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F10E1B3BD6DE3D33F3C34CC3 /* Pods-UCD Foodconnect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FBXJCGAF5U;
 				INFOPLIST_FILE = "UCD Foodconnect/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

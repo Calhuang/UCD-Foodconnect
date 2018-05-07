@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>748062302323-omqmsbqemdse014hsc9nmjrps3mnld2p.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.748062302323-omqmsbqemdse014hsc9nmjrps3mnld2p</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDM1yKez3JKicVH1cIc8AVHzpJmWxpE1TE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>748062302323</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.calvinhuang.UCD-Foodconnect</string>
+	<key>PROJECT_ID</key>
+	<string>ucd-foodconnect</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ucd-foodconnect.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:748062302323:ios:93b3d7ce64f183e7</string>
+	<key>DATABASE_URL</key>
+	<string>https://ucd-foodconnect.firebaseio.com</string>
+</dict>
+</plist>
