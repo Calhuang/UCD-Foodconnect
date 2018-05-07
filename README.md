@@ -9,4 +9,4 @@ then go to the project directory with the podfile and enter.
 
 $ pod install
 
-then open the xcworkspace file
+then open the xcworkspace file (the white one)
