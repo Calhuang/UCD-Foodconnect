@@ -9,10 +9,83 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuthUI
+import FirebaseStorage
 
-class InputViewController: UIViewController {
+class InputViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var downloadImage = "none"
     @IBOutlet weak var inputText: UITextView!
+    @IBAction func photoSelct(_ sender: Any) {
+        let actionsheet = UIAlertController(title: "Photo Source", message: "Choose an image", preferredStyle: .actionSheet)
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        
+        actionsheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                imagePicker.sourceType = .camera
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+            else {
+                print("Camera not available!")
+            }
+        }))
+        actionsheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action: UIAlertAction) in
+            imagePicker.sourceType = .photoLibrary
+            self.present(imagePicker, animated: true, completion: nil)
+        }))
+        actionsheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(actionsheet, animated: true, completion: nil)
+    }
+    @IBOutlet weak var imageView: UIImageView!
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let imageUrl = info[UIImagePickerControllerReferenceURL] as! NSURL
+        let imageName = imageUrl.lastPathComponent
+        var fileType = ""
+        if let range = imageName?.range(of: ".") {
+            let randName = imageName![range.upperBound...]
+            fileType = String(randName).lowercased()
+        }
+        let storage = Storage.storage().reference()
+        let imagesRef = storage.child("images/\(randomAlphaNumericString(length: 8)).\(fileType)")
+        let image = info[UIImagePickerControllerOriginalImage]as! UIImage
+        //obtaining saving path
+        let fileManager = FileManager.default
+        let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
+        let imagePath = documentsPath?.appendingPathComponent("\(randomAlphaNumericString(length: 8)).\(fileType)")
+        
+        // extract image from the picker and save it
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            try! UIImageJPEGRepresentation(pickedImage, 0.0)?.write(to: imagePath!)
+        }
+
+        imageView.image = image
+        imageView.layer.cornerRadius = 8.0
+        imageView.clipsToBounds = true
+
+        // Upload the file to the path "images/rivers.jpg"
+        let uploadTask = imagesRef.putFile(from: imagePath!, metadata: nil) { metadata, error in
+            // You can also access to download URL after upload.
+            storage.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+                
+            }
+        }
+        
+        uploadTask.observe(.success) { snapshot in
+            // Upload completed successfully
+            self.downloadImage = snapshot.metadata?.downloadURL()?.absoluteString ?? "none"
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerDidCancel (_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func sendData(_ sender: Any) {
         print("sending data")
@@ -28,7 +101,8 @@ class InputViewController: UIViewController {
                 "name": user?.displayName ?? "no_name",
                 "text": inputText.text ?? "message error",
                 "user_id": user?.uid ?? "no_id",
-                "timestamp": getDate()
+                "timestamp": getDate(),
+                "photo_url": downloadImage,
             ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")
@@ -71,7 +145,21 @@ class InputViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    // random string gen
+    func randomAlphaNumericString(length: Int) -> String {
+        let allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let allowedCharsCount = UInt32(allowedChars.count)
+        var randomString = ""
+        
+        for _ in 0..<length {
+            let randomNum = Int(arc4random_uniform(allowedCharsCount))
+            let randomIndex = allowedChars.index(allowedChars.startIndex, offsetBy: randomNum)
+            let newCharacter = allowedChars[randomIndex]
+            randomString += String(newCharacter)
+        }
+        
+        return randomString
+    }
 
     /*
     // MARK: - Navigation

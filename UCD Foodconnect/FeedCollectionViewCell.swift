@@ -12,4 +12,5 @@ class FeedCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var profPic: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userText: UILabel!
+    @IBOutlet weak var imagePost: UIImageView!
 }

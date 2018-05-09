@@ -12,4 +12,5 @@ target 'UCD Foodconnect' do
   pod 'FirebaseUI'
   pod 'Firebase/Database'
   pod 'Firebase/Firestore'
+  pod 'SDWebImage'
 end

@@ -9,8 +9,9 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuthUI
+import SDWebImage
 
-class FeedViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class FeedViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var feedView: UICollectionView!
     @IBAction func unwindToRootViewController(segue: UIStoryboardSegue) {
@@ -35,20 +36,29 @@ class FeedViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     var textArray = [String]()
     var nameArray = [String]()
+    var picArray = [String]()
+    var count = 0
     
     func fetchData() {
         let db = Firestore.firestore()
+        self.textArray = [String]()
+        self.nameArray = [String]()
+        self.picArray = [String]()
         // Configure the cell...
         db.collection("messages").order(by: "timestamp", descending: true).getDocuments {(snapshot,error) in
             if error != nil {
                 print(error!)
             } else {
                 for document in (snapshot?.documents)! {
+                    
                     if let text = document.data()["text"] as? String {
                         self.textArray.append(text)
                     }
                     if let userID = document.data()["name"] as? String {
                         self.nameArray.append(userID)
+                    }
+                    if let pic = document.data()["photo_url"] as? String {
+                        self.picArray.append(pic)
                     }
                 }
                 
@@ -82,11 +92,29 @@ class FeedViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "feedCell", for: indexPath) as! FeedCollectionViewCell
-        
+                let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "feedCellImage", for: indexPath) as! FeedCollectionViewCell
+        count = count + 1
+        print(count)
         // create cell
         cell.userText.text = self.textArray[indexPath.row]
         cell.userName.text = self.nameArray[indexPath.row]
+        if (self.picArray[indexPath.row] != "none") {
+            cell2.userText.text = self.textArray[indexPath.row]
+            cell2.userName.text = self.nameArray[indexPath.row]
+            cell2.imagePost.sd_setImage(with: URL(string: self.picArray[indexPath.row]), placeholderImage: UIImage(named: "embarassed_emoji.png"))
+            return cell2
+        }
+        print("picaray")
+        print(self.picArray)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+        if (self.picArray[indexPath.row] != "none") {
+            return CGSize(width: self.view.frame.size.width, height: 501.0)
+        }
+        return CGSize(width: self.view.frame.size.width, height: 256.0)
     }
     
 }
