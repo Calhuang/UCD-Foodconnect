@@ -10,11 +10,25 @@ import UIKit
 import FirebaseFirestore
 import FirebaseAuthUI
 import FirebaseStorage
+import MapKit
+import CoreLocation
 
-class InputViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class InputViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
     var downloadImage = "none"
-    @IBOutlet weak var inputText: UITextView!
+    let locationManager = CLLocationManager()
+    let datePicker = UIDatePicker()
+    let datePickerTwo = UIDatePicker()
+    var user_long = 0.0
+    var user_lat = 0.0
+   
+    @IBOutlet weak var infoText: UITextField!
+    @IBOutlet weak var timeText: UITextField!
+    @IBOutlet weak var timeTwoText: UITextField!
+    @IBOutlet weak var timeThreeText: UITextField!
+    @IBOutlet weak var locationText: UITextField!
+    @IBOutlet weak var titleText: UITextField!
+    
     @IBAction func photoSelct(_ sender: Any) {
         let actionsheet = UIAlertController(title: "Photo Source", message: "Choose an image", preferredStyle: .actionSheet)
         let imagePicker = UIImagePickerController()
@@ -69,6 +83,7 @@ class InputViewController: UIViewController, UIImagePickerControllerDelegate, UI
             storage.downloadURL { (url, error) in
                 guard let downloadURL = url else {
                     // Uh-oh, an error occurred!
+                    print(url)
                     return
                 }
                 
@@ -95,26 +110,137 @@ class InputViewController: UIViewController, UIImagePickerControllerDelegate, UI
         if Auth.auth().currentUser != nil {
             // User is signed in.
             let user = Auth.auth().currentUser
+            let combinedText = "\(titleText.text ?? "") \n\(locationText.text ?? "") \n\(timeText.text ?? "") \n\(timeTwoText.text ?? "") - \(timeThreeText.text ?? "") \n"
             print(user?.providerID ?? "nothing found")
-            
-            ref = db.collection("messages").addDocument(data: [
-                "name": user?.displayName ?? "no_name",
-                "text": inputText.text ?? "message error",
-                "user_id": user?.uid ?? "no_id",
-                "timestamp": getDate(),
-                "photo_url": downloadImage,
-            ]) { err in
-                if let err = err {
-                    print("Error adding document: \(err)")
+            db.collection("users").whereField("user_id", isEqualTo: user?.uid ?? "none").getDocuments {(snapshot,error) in
+                if error != nil {
+                    print(error!)
                 } else {
-                    print("Document added with ID: \(ref!.documentID)")
+                    for document in (snapshot?.documents)! {
+                        
+                        if let pic_id = document.data()["photo_url"] as? String {
+                            ref = db.collection("messages").addDocument(data: [
+                                "name": user?.displayName ?? "no_name",
+                                "text": combinedText,
+                                "user_id": user?.uid ?? "no_id",
+                                "timestamp": self.getDate(),
+                                "photo_url": self.downloadImage,
+                                "prof_img": pic_id,
+                                "description": self.infoText.text ?? "",
+                                "lat": self.user_lat,
+                                "long": self.user_long,
+                                ]) { err in
+                                    if let err = err {
+                                        print("Error adding document: \(err)")
+                                    } else {
+                                        print("Document added with ID: \(ref!.documentID)")
+                                    }
+                            }
+                        }
+                    }
+                    
                 }
+                
             }
+            
+
         } else {
             // No user is signed in.
             print("user not signed in!?")
         }
 
+    }
+    
+    @IBAction func setCoordinates(_ sender: Any) {
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func createDatePicker() {
+        
+        // toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // done button for toolbar
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([done], animated: false)
+        
+        timeText.inputAccessoryView = toolbar
+        timeText.inputView = datePicker
+        
+        // format picker for date
+        datePicker.datePickerMode = .date
+    }
+    
+    @objc func donePressed() {
+        // format date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        let dateString = formatter.string(from: datePicker.date)
+        
+        timeText.text = "\(dateString)"
+        self.view.endEditing(true)
+    }
+    
+    func createDatePickerTwo() {
+        
+        // toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // done button for toolbar
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedTwo))
+        toolbar.setItems([done], animated: false)
+        
+        timeTwoText.inputAccessoryView = toolbar
+        timeTwoText.inputView = datePickerTwo
+        
+        // format picker for date
+        datePickerTwo.datePickerMode = .time
+    }
+    
+    @objc func donePressedTwo() {
+        // format date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        let dateString = formatter.string(from: datePickerTwo.date)
+        
+        timeTwoText.text = "\(dateString)"
+        self.view.endEditing(true)
+    }
+    
+    func createDatePickerThree() {
+        
+        // toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // done button for toolbar
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedThree))
+        toolbar.setItems([done], animated: false)
+        
+        timeThreeText.inputAccessoryView = toolbar
+        timeThreeText.inputView = datePickerTwo
+        
+        // format picker for date
+        datePickerTwo.datePickerMode = .time
+    }
+    
+    @objc func donePressedThree() {
+        // format date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        let dateString = formatter.string(from: datePickerTwo.date)
+        
+        timeThreeText.text = "\(dateString)"
+        self.view.endEditing(true)
     }
     
     
@@ -135,16 +261,41 @@ class InputViewController: UIViewController, UIImagePickerControllerDelegate, UI
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         return formatter.string(from: date)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        infoText.borderStyle = .none
+        infoText.layer.cornerRadius = 5
+        infoText.clipsToBounds = true
+        infoText.textAlignment = .left
+        infoText.contentVerticalAlignment = .top
         // Do any additional setup after loading the view.
+        createDatePicker()
+        createDatePickerTwo()
+        createDatePickerThree()
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        user_lat = locValue.latitude
+        user_long = locValue.longitude
+        locationManager.stopUpdatingLocation()
+    }
+    
     // random string gen
     func randomAlphaNumericString(length: Int) -> String {
         let allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
