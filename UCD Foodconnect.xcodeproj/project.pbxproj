@@ -12,6 +12,7 @@
 		3E66DA8C209FD18D00F4AD17 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E66DA8B209FD18D00F4AD17 /* FeedCollectionViewCell.swift */; };
 		3E66DA90209FD26400F4AD17 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E66DA8F209FD26400F4AD17 /* FeedViewController.swift */; };
 		3E7B41D720A3AF28005B1C0C /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7B41D620A3AF28005B1C0C /* UserInfoViewController.swift */; };
+		3EA957EB20C0C5E700CF30B4 /* LoginCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA957E920C0B6A200CF30B4 /* LoginCustomViewController.swift */; };
 		3EC0BDF220B8892900BB7A1C /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0BDF120B8892900BB7A1C /* CreditsViewController.swift */; };
 		3EC3184E20A0D0F400DE06C7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3184D20A0D0F400DE06C7 /* LoginViewController.swift */; };
 		3ED90D41209793EC0079B020 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED90D40209793EC0079B020 /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 		3E66DA8B209FD18D00F4AD17 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		3E66DA8F209FD26400F4AD17 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		3E7B41D620A3AF28005B1C0C /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		3EA957E920C0B6A200CF30B4 /* LoginCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCustomViewController.swift; sourceTree = "<group>"; };
 		3EC0BDF120B8892900BB7A1C /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		3EC3184D20A0D0F400DE06C7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3ED90D3D209793EC0079B020 /* UCD Foodconnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UCD Foodconnect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +99,7 @@
 				3ED90D40209793EC0079B020 /* AppDelegate.swift */,
 				3ED90D42209793EC0079B020 /* ViewController.swift */,
 				3E7B41D620A3AF28005B1C0C /* UserInfoViewController.swift */,
+				3EA957E920C0B6A200CF30B4 /* LoginCustomViewController.swift */,
 				3ED90D44209793EC0079B020 /* Main.storyboard */,
 				3EC0BDF120B8892900BB7A1C /* CreditsViewController.swift */,
 				3EF25B2220B781A00088D603 /* ModalViewController.swift */,
@@ -293,6 +296,7 @@
 				3EF25B2320B781A10088D603 /* ModalViewController.swift in Sources */,
 				3EC3184E20A0D0F400DE06C7 /* LoginViewController.swift in Sources */,
 				3E7B41D720A3AF28005B1C0C /* UserInfoViewController.swift in Sources */,
+				3EA957EB20C0C5E700CF30B4 /* LoginCustomViewController.swift in Sources */,
 				3ED90D43209793EC0079B020 /* ViewController.swift in Sources */,
 				3EC0BDF220B8892900BB7A1C /* CreditsViewController.swift in Sources */,
 				3E66DA8C209FD18D00F4AD17 /* FeedCollectionViewCell.swift in Sources */,

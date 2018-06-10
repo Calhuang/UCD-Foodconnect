@@ -12,8 +12,11 @@ class ModalViewController: UIViewController {
 
     @IBOutlet weak var modalDesc: UILabel!
     var passedText = "none"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("IN MODAL")
+        print(passedText)
         modalDesc.text = passedText
         modalDesc.sizeToFit()
 

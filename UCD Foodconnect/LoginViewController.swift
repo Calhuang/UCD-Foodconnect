@@ -10,11 +10,19 @@ import UIKit
 import FirebaseAuthUI
 import FirebaseGoogleAuthUI
 
-class LoginViewController: UIViewController, FUIAuthDelegate {
+class LoginViewController: UIViewController, FUIAuthDelegate, AuthUIDelegate {
 
     fileprivate(set) var auth:Auth?
     fileprivate(set) var authUI: FUIAuth? //only set internally but get externally
     fileprivate(set) var authStateListenerHandle: AuthStateDidChangeListenerHandle?
+    var backgroundImage : UIImageView!
+    var customAuthPicker : FUIAuthPickerViewController!
+    
+    func authPickerViewController(forAuthUI: FUIAuth) -> FUIAuthPickerViewController {
+        customAuthPicker = authPickerViewController(forAuthUI: authUI!)
+        backgroundImage = UIImageView(image: UIImage.init(named: "icescream"))
+        return customAuthPicker
+    }
 
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
         
@@ -43,8 +51,11 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     
     @IBAction func loginAction(sender: AnyObject) {
         // Present the default login view controller provided by authUI
-        let authViewController = authUI?.authViewController();
-        self.present(authViewController!, animated: true, completion: nil)
+        //let authViewController = authUI?.authViewController();
+        let authViewController = LoginCustomViewController(authUI: authUI!)
+
+        let navc = UINavigationController(rootViewController: authViewController)
+        self.present(navc, animated: true, completion: nil)
 
     }
     
@@ -56,17 +67,6 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
         self.authUI = FUIAuth.defaultAuthUI()
         self.authUI?.delegate = self
         self.authUI?.providers = [FUIGoogleAuth(),]
-        
-//        let width = UIScreen.main.bounds.size.width
-//        let height = UIScreen.main.bounds.size.height
-//
-//        let imageViewBackground = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
-//        imageViewBackground.image = UIImage(named: "icescream")
-//
-//        // you can change the content mode:
-//        imageViewBackground.contentMode = UIViewContentMode.scaleAspectFill
-//
-//        view.insertSubview(imageViewBackground, at: 0)
         
         
         self.authStateListenerHandle = self.auth?.addStateDidChangeListener { (auth, user) in
